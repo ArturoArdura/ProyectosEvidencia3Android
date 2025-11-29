@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/rick_background">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/rick_card_bg"
+        app:tabTextColor="@color/white"
+        app:tabSelectedTextColor="@color/rick_green_neon"
+        app:tabIndicatorColor="@color/rick_green_neon">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aliens (CRUD)" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Orders (Relación)" />
+    </com.google.android.material.tabs.TabLayout>
+
+    <!-- Sección de Aliens -->
+    <LinearLayout
+        android:id="@+id/section_aliens"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/btn_add_alien"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create New Alien"
+            android:backgroundTint="@color/purple_700"
+            android:layout_marginBottom="8dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/aliens_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <!-- Sección de Orders (Oculta por defecto) -->
+    <LinearLayout
+        android:id="@+id/section_orders"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cross Data: Who ordered what?"
+            android:textColor="@color/rick_green_neon"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/orders_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+        
+        <Button
+            android:id="@+id/btn_create_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Simulate Order"
+            android:backgroundTint="@color/teal_700"
+            android:layout_marginTop="8dp"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Rick\'s Interdimensional Diner</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Rick Sanchez</string>
+    <string name="nav_header_subtitle">wubba.lubba@dubdub.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_promos">VIP Customers Hunt</string>
+    <string name="menu_rewards">Alien Menu Rewards</string>
+    <string name="menu_leaderboard">Galactic Events</string>
+    
+    <string name="text_promos">Find these VIP customers in the diner to earn Mega Seeds!</string>
+    <string name="text_rewards">Exchange your Flurbos for delicious food!</string>
+    <string name="text_leaderboard">Historic events at the diner.</string>
+</resources>

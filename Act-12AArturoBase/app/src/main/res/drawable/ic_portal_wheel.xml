@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+    
+    <!-- Fondo oscuro -->
+    <path
+        android:fillColor="#1A1A2E"
+        android:pathData="M100,100 m-100,0 a100,100 0 1,0 200,0 a100,100 0 1,0 -200,0" />
+    
+    <!-- Espiral del portal (Simplificada) -->
+    <path
+        android:fillColor="#97CE4C"
+        android:pathData="M100,10 L100,30 M100,170 L100,190 M10,100 L30,100 M170,100 L190,100 M36,36 L50,50 M150,150 L164,164 M36,164 L50,150 M150,50 L164,36"
+        android:strokeColor="#97CE4C"
+        android:strokeWidth="5"
+        android:strokeLineCap="round"/>
+    
+    <!-- Centro -->
+    <path
+        android:fillColor="#F0E14A"
+        android:pathData="M100,100 m-20,0 a20,20 0 1,0 40,0 a20,20 0 1,0 -40,0" />
+        
+    <!-- Triangulo indicador (apuntando arriba, aunque esto girará) -->
+    <path
+        android:fillColor="#00C853"
+        android:pathData="M100,5 L90,25 L110,25 Z" />
+</vector>

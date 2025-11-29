@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_deep_space"
+    tools:context=".ui.home.HomeFragment">
+
+    <!-- Header Flotante -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/header_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="50dp"
+        app:cardBackgroundColor="#80000000"
+        app:cardElevation="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="4dp"
+            android:gravity="center_vertical">
+            
+            <ImageView
+                android:id="@+id/img_mascot"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                tools:src="@tools:sample/avatars" />
+                
+            <TextView
+                android:id="@+id/txt_mascot_dialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="12dp"
+                android:text="Wubba Lubba Dub Dub!"
+                android:textColor="@color/rick_green_neon"
+                android:textStyle="bold"
+                android:maxWidth="200dp"
+                android:ellipsize="end"
+                android:maxLines="1"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- === FASE 1: EL PORTAL === -->
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_portal_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="img_portal,btn_open_portal,txt_portal_hint"
+        android:visibility="visible"/>
+
+    <ImageView
+        android:id="@+id/img_portal"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/ic_portal_wheel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" 
+        app:layout_constraintVertical_bias="0.4"/>
+
+    <TextView
+        android:id="@+id/txt_portal_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INITIATE JUMP SEQUENCE"
+        android:textColor="@color/teal_200"
+        android:letterSpacing="0.2"
+        android:textSize="12sp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/img_portal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/btn_open_portal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OPEN PORTAL"
+        android:paddingHorizontal="32dp"
+        android:paddingVertical="16dp"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/btn_neon_gradient"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <!-- === FASE 2: DASHBOARD === -->
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_dimension_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="layout_venue_info,layout_balance,recycler_deals,txt_deals_title,txt_bounties_title,recycler_bounties"
+        android:visibility="gone"/>
+
+    <!-- Info del Lugar -->
+    <LinearLayout
+        android:id="@+id/layout_venue_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="80dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LOCATION DETECTED"
+            android:textSize="10sp"
+            android:textColor="@color/teal_200"
+            android:letterSpacing="0.3"/>
+            
+        <TextView
+            android:id="@+id/txt_venue_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BLIPS AND CHITZ"
+            android:textSize="28sp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/white"
+            android:shadowColor="@color/rick_green_neon"
+            android:shadowRadius="10"/>
+            
+        <TextView
+            android:id="@+id/txt_venue_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Arcade Galaxy"
+            android:textColor="@color/white"
+            android:alpha="0.6"/>
+    </LinearLayout>
+
+    <!-- Saldo -->
+    <LinearLayout
+        android:id="@+id/layout_balance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#33000000"
+        android:padding="16dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/layout_venue_info">
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AVAILABLE FLURBOS"
+            android:textColor="@color/rick_yellow"
+            android:textSize="12sp"/>
+            
+        <TextView
+            android:id="@+id/txt_balance_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="56sp"
+            android:textStyle="bold"
+            android:textColor="@color/rick_green_neon"/>
+    </LinearLayout>
+
+    <!-- Bounties (Misiones) -->
+    <TextView
+        android:id="@+id/txt_bounties_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GALACTIC BOUNTIES"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_balance"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_bounties"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:clipToPadding="false"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/txt_bounties_title"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Deals Exclusivos -->
+    <TextView
+        android:id="@+id/txt_deals_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EXCLUSIVE DEALS HERE"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recycler_bounties"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_deals"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@id/txt_deals_title"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ProgressBar
+        android:id="@+id/loading_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:indeterminateTint="@color/rick_green_neon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
